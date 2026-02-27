@@ -19,7 +19,7 @@ function ContactForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.post("http://localhost:5000/add", {
+    await axios.post("https://employee-backend.onrender.com/add", {
       ...form,
       tags: form.tags.split(",")
     });

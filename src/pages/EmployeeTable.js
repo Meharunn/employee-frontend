@@ -7,7 +7,7 @@ function EmployeeTable() {
   const [editingEmployee, setEditingEmployee] = useState(null);
 
   const fetchEmployees = async () => {
-    const res = await axios.get("http://localhost:5000/all");
+    const res = await axios.get("https://employee-backend.onrender.com/all");
     setEmployees(res.data);
   };
 
@@ -21,18 +21,18 @@ function EmployeeTable() {
       return;
     }
 
-    const res = await axios.get(`http://localhost:5000/search/${search}`);
+    const res = await axios.get(`https://employee-backend.onrender.com/search/${search}`);
     setEmployees(res.data);
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:5000/delete/${id}`);
+    await axios.delete(`https://employee-backend.onrender.com/delete/${id}`);
     fetchEmployees();
   };
 
   const handleUpdate = async () => {
     await axios.put(
-      `http://localhost:5000/update/${editingEmployee._id}`,
+      `https://employee-backend.onrender.com/update/${editingEmployee._id}`,
       {
         ...editingEmployee,
         tags: editingEmployee.tags.split(",")
